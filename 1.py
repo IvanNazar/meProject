@@ -10,24 +10,24 @@ from rich.table import Table
 
 
 init(autoreset=True)
-
+#colored text
 print(Fore.RED + "якась крилата фраза")
 print(Back.CYAN + "ім’я першої вчительки")
 print(Back.MAGENTA + "побажання")
 print(Back.YELLOW + "улюблене слово іноземною мовою за допомогою")
 
 console = Console()
-
+#table (text №2)
 table = Table(title="Таблиця оцінок")
-
+#part1
 table.add_column("Ім’я", justify="left", style="cyan", no_wrap=True)
 table.add_column("Математика", justify="center", style="magenta")
 table.add_column("Фізика", justify="center", style="green")
-
+#part2
 table.add_row("Аня", "12", "14")
 table.add_row("Богдан", "15", "16")
 table.add_row("Катя", "14", "15")
-
+#print all of this out
 console.print(table)
 
 ##############################################
