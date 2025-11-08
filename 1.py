@@ -9,12 +9,9 @@ from rich.console import Console
 from rich.table import Table
 
 
+
 init(autoreset=True)
 #colored text
-print(Fore.RED + "якась крилата фраза")
-print(Back.CYAN + "ім’я першої вчительки")
-print(Back.MAGENTA + "побажання")
-print(Back.YELLOW + "улюблене слово іноземною мовою за допомогою")
 
 console = Console()
 #table (text №2)
@@ -61,6 +58,12 @@ def print_colored_background(text: str, background: str = "RED") -> str:
     }
     
     return background_dict.get(background.upper(), Back.WHITE) + text
+
+
+print(colored_text ("Тъгата отлита на крилете на времето.", "RED"))
+print(print_colored_background ("людмила", "CYAN"))
+print(colored_text ("wish you the best", "GREEN"))
+print(print_colored_background ("nektaryinki", "YELLOW"))
 
 #############################################
 
