@@ -23,7 +23,16 @@ def create_app():
     from .models import db
     db.init_app(app)
 
-    _ensure_columns(db_path, 'products', {'created_at': 'DATETIME', 'updated_at': 'DATETME'})
+    _ensure_columns(db_path, 'products',
+                    {'created_at': 'DATETIME',
+                     'updated_at': 'DATETIME',
+                     'description': 'TEXT',
+                     'stock': 'INTEGER',  
+                     'is_active': 'BOOLEAN',
+                     'category': 'TEXT',
+                     'rating': 'REAL',
+                     'sale': 'BOOLEAN'
+                     })
     from .routes import bp as routes_bp
     app.register_blueprint(routes_bp)
     return app
