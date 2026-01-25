@@ -24,22 +24,27 @@
 
         <label>Stock:
             <input type="number" name="stock"
-             value="{{product.stock if product else '' }}" required>
+             value="{{product.stock if product else '' }}">
         </label> <br>
 
         <label>is Active:
             <input type="checkbox" name="is_active"
-             value="{{product.is_active if product else '' }}" required>
+             value="{{product.is_active if product else '' }}">
         </label> <br>
 
         <label>Rating:
             <input type="number" name="rating"
-             value="{{product.rating if product else '' }}" required>
+             value="{{product.rating if product else '' }}">
         </label> <br>
 
         <label>Sale:
             <input type="checkbox" name="sale"
-             value="{{product.sale if product else '' }}" required>
+             value="{{product.sale if product else '' }}">
+        </label> <br>
+
+        <label>Category:
+            <input type="text" name="category"
+             value="{{product.category if product else '' }}">
         </label> <br>
         
         <button type="submit">{{ action }}</button>
