@@ -8,12 +8,13 @@
         <h1><a href="http://127.0.0.1:5000/products">products</a></h1>
         <div class="action-bar">
             <a class="btn" href="{{ url_for('routes.products') }}">Edit Products</a>
+        </div>
         <div class="products">
             {% for product in products %}
             <div class="card">
                 <img src="{{ url_for('static', filename='images/' ~ product.id ~ '.png') }}"
                     alt="{{ product.name }}"
-                    oneerror="this.onerror=null;this.src='{{ url_for('static', filename='images/default.png') }}';">
+                    onerror="this.onerror=null;this.src='{{ url_for('static', filename='images/default.png') }}'">
                 <h2 class="product-name">{{ product.name }}</h2>
                 <p class="product-feature">pricename: ${{ '%.2f'|format(product.pricename) }}</p>
 
