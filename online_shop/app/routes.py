@@ -37,7 +37,7 @@ def delete_product(product_id):
     db.session.delete(product)
     db.session.commit()
     flash('Product deleted!')
-    return redirect(url_for('routes.product'))
+    return redirect(url_for('routes.products'))
 
 @bp.route('/update/<int:product_id>', methods=['GET', 'POST'])
 def update_product(product_id):

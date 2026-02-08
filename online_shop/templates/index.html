@@ -17,10 +17,39 @@
                     onerror="this.onerror=null;this.src='{{ url_for('static', filename='images/default.png') }}'">
                 <h2 class="product-name">{{ product.name }}</h2>
                 <p class="product-feature">pricename: ${{ '%.2f'|format(product.pricename) }}</p>
+                <div class="card-actions">
+                    <button class="btn btn-details"
+                    data-name={{ product.name|e }}
+                    data-price={{ '%.2f' product.pricename }}
+                    data-stock={{ product.stock }}
+                    data-description={{ product.description }}
+                    data-category={{ product.category }}
+                    data-rating={{ product.rating }}
+                    data-sale={{ product.sale }}
+                    data-active={{ product.active }}
+                    data-image={{ url_for('static', filename='images/' ~ product.id ~ '.png') }}
+                    >Details
+                </button>
 
             </div>
             {% endfor %}
         </div>
+            <div id="product-modal" class="modal" aria-hidden="true">
+                <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+                    <button class="modal-close" aria-label="Close">&times;</button>
+                    <div class="modal-body">
+                        <img id="modal-image" src="" alt="Product image"
+                 onerror="this.onerror=null;this.src='{{ url_for('static', filename='images/default.png') }}'">
+                        <div class="modal-content">
+                            <h2 id="modal-name"></h2>
+                            <p class="product-feature" id="modal-price"> </p>
+                            <p id="modal-stock"></p>
+                            <p id="modal-description"></p>
+                            <p id="modal-meta" class="meta"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
        <script src="{{ url_for('static', filename='modal.js') }}"></script>
         </body>
