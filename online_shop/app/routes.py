@@ -46,6 +46,11 @@ def update_product(product_id):
         product.name = request.form['name']
         product.price = float(request.form['price'])
         product.description = request.form.get('description')
+        product.stock = int(request.form.get('stock', 0))
+        product.is_active = bool(request.form.get('is_active'))
+        product.category = request.form.get('category')
+        product.rating = float(request.form.get('rating', 0))
+        product.sale = bool(request.form.get('sale'))
     
         print (f'''name={product.name}, price={product.price}, description={product.description}, stock={product.stock}, is_active={product.is_active}, category={product.category}, rating={product.rating}, sale={product.sale}''')
     
