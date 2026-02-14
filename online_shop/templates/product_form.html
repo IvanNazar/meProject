@@ -27,20 +27,20 @@
              value="{{product.stock if product else '' }}">
         </label> <br>
 
-        <label>is Active:
+           <label>Active:
             <input type="checkbox" name="is_active"
-             value="{{product.is_active if product else '' }}">
-        </label> <br>
+                {% if product and product.is_active %}checked{% endif %}>
+        </label><br>
 
         <label>Rating:
             <input type="number" name="rating"
              value="{{product.rating if product else '' }}">
         </label> <br>
 
-        <label>Sale:
+           <label>Sale:
             <input type="checkbox" name="sale"
-             value="{{product.sale if product else '' }}">
-        </label> <br>
+                {% if product and product.sale %}checked{% endif %}>
+        </label><br>
 
         <label>Category:
             <input type="text" name="category"

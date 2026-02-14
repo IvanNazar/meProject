@@ -24,7 +24,13 @@ def add_product():
     if request.method == 'POST':
         name=request.form['name']
         price=request.form['price']
-        product=Product(name=name, pricename=float(price))
+        description=request.form['description']
+        stock=request.form['stock']
+        is_active=bool(request.form.get('is_active'))
+        category=request.form['category']
+        rating=request.form['rating']
+        sale=bool(request.form.get('sale'))
+        product=Product(name=name, price=float(price), description=description, stock=int(stock), is_active=is_active, category=category, rating=float(rating), sale=sale)
         db.session.add(product)
         db.session.commit()
         flash("Product added")
@@ -56,5 +62,5 @@ def update_product(product_id):
     
         db.session.commit()
         flash('Всё ок обнова прошла')
-
+        return redirect(url_for('routes.products'))
     return render_template('product_form.html', action='Update', product=product)
